@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculadora</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+ <script src="jquery-ui.min.js"> </script>
+
+ <style type="text/css" media="screen">
+
+ .row {
+  display: inline-block;   
+    bottom:0;
+}
+
+* {
+ user-select: none;
+ -webkit-touch-callout: none;
+ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ -webkit-tap-highlight-color: transparent;
+ margin: 0;
+ padding: 0;
+}
+
+
+html {
+    display: table;
+    margin: auto;
+    }
+
+body{
+      margin-top: 70px;
+      margin-left: auto;
+      margin-right: auto;
+     display: table-cell;
+     text-align: center;
+
+    }
+
+@media (orientation:landscape) {
+      body {
+        width: 100vh;
+      }
+    }
+
+    @media (orientation:portrait) {
+      body {
+        width: 100%;
+      }
+    }
+
+ .datos{
+ 	color:blue;
+ }
+ .solucion{
+ 	color:green;
+ 	display:inline-block;
+ 	font-weight: bold;
+ }
+ .unitarias{
+ 	 background: #CCCCCC;
+ 	 border: 1px solid #FF9900;
+     margin-left: auto;
+  margin-right: auto;
+ }
+ .binarias{ 	
+ 	 border: 1px solid #FF9900;
+ }
+ .csv{
+ 	 background: #CCCCCC;
+ 	 border: 1px solid #FF9900;
+ }
+
+
+ </style>
+
+<script type="text/javascript">
+ 
+  $(
+                function () {
+
+                    $("#valorUnitario").on("click",
+                                function () { $("#valorUnitario").val(""); $("#resultadoUnitarias").html(""); });
+
+                    $("#valorXbinario").on("click",
+                                function () { $("#valorXbinario").val(""); $("#valorYbinario").val(""); $("#resultadoBinarias").html(""); });
+
+                    $("#valorCsv").on("click",
+                                function () { $("#valorCsv").val(""); $("#resultadoCsv").html(""); });
+
+
+
+                    
+                    $("#elevarCuadrado").on("click",
+                                      function () {
+                                          var valor = document.getElementById("valorUnitario");
+                                          var resultado = document.getElementById("resultadoUnitarias");
+
+                                          resultado.innerHTML = "= " + (valor.value * valor.value);
+                                      });
+
+                    $("#valorInverso").on("click",
+                                     function () {
+                                         var valor = document.getElementById("valorUnitario");
+                                         var resultado = document.getElementById("resultadoUnitarias");
+
+                                         resultado.innerHTML = "= " + (1 / valor.value) ;
+                                     });
+
+                    $("#raizCuadrada").on("click",
+                                  function () {
+                                      var valor = document.getElementById("valorUnitario");
+                                      var resultado = document.getElementById("resultadoUnitarias");
+
+                                      resultado.innerHTML = "= " + (Math.sqrt(valor.value));
+                                  });
+
+                    $("#parteEntera").on("click",
+                                    function () {
+                                        var valor = document.getElementById("valorUnitario");
+                                        var resultado = document.getElementById("resultadoUnitarias");
+
+                                        resultado.innerHTML = "= " + ((valor.value >= 0) ? Math.floor(valor.value) : Math.ceil(valor.value));
+                                    });
+
+                    $("#potenciaN").on("click",
+                                     function () {
+                                         var valor = document.getElementById("valorUnitario");
+                                         var resultado = document.getElementById("resultadoUnitarias");
+
+                                         var valorResultado = 1;
+                                        
+                                         var iteracion = valor.value;
+                                        
+                                         while (iteracion > 0) {
+                                             valorResultado = valorResultado * 2;
+                                             iteracion = iteracion - 1;
+                                         }
+
+                                         resultado.innerHTML = "= " + valorResultado ;
+                                     });
+
+                    $("#valorFactorial").on("click",
+                                       function () {
+                                           var valor = document.getElementById("valorUnitario");
+                                           var resultado = document.getElementById("resultadoUnitarias");
+
+                                           var valorResultado = 1;
+
+                                           for (i = 1; i < valor.value; i++) {
+                                               valorResultado = valorResultado * (i + 1);
+                                           }
+
+                                           resultado.innerHTML = "= " + valorResultado;
+                                       });
+
+
+
+                    $("#sumar").on("click",
+                                  function () {
+                                      var valorX = document.getElementById("valorXbinario");
+                                      var valorY = document.getElementById("valorYbinario");
+                                      var resultado = document.getElementById("resultadoBinarias");
+
+                                      resultado.innerHTML = "= " + (+valorX.value + +valorY.value);
+                                  });
+
+                    $("#restar").on("click",
+                                   function () {
+                                       var valorX = document.getElementById("valorXbinario");
+                                       var valorY = document.getElementById("valorYbinario");
+                                       var resultado = document.getElementById("resultadoBinarias");
+
+                                       resultado.innerHTML = "= " + (+valorX.value - +valorY.value);
+                                   });
+
+                    $("#multiplicar").on("click",
+                                            function () {
+                                                var valorX = document.getElementById("valorXbinario");
+                                                var valorY = document.getElementById("valorYbinario");
+                                                var resultado = document.getElementById("resultadoBinarias");
+
+                                                resultado.innerHTML = "= " + (+valorX.value * +valorY.value) ;
+                                            });
+
+                    $("#dividir").on("click",
+                                      function () {
+                                          var valorX = document.getElementById("valorXbinario");
+                                          var valorY = document.getElementById("valorYbinario");
+                                          var resultado = document.getElementById("resultadoBinarias");
+
+                                          resultado.innerHTML = "= " + (+valorX.value / +valorY.value);
+                                      });
+
+                    $("#elevarValor").on("click",
+                                    function () {
+                                        var valorX = document.getElementById("valorXbinario");
+                                        var valorY = document.getElementById("valorYbinario");
+                                        var resultado = document.getElementById("resultadoBinarias");
+
+                                        resultado.innerHTML = "= " + (Math.pow(+valorX.value, +valorY.value)) ;
+                                    });
+
+
+
+                    $("#sumatorio").on("click",
+                                        function () {
+                                            var valor = document.getElementById("valorCsv");
+                                            var resultado = document.getElementById("resultadoCsv");
+
+                                            var valorResultado = 0;
+
+                                            var lista = valor.value.split(",");
+
+                                            for (i = 0; i < lista.length; i++) {
+                                                valorResultado = valorResultado + +lista[i];
+                                            }
+
+                                            resultado.innerHTML = "= " + valorResultado ;
+                                        });
+
+                    $("#producto").on("click",
+                                        function () {
+                                            var valor = document.getElementById("valorCsv");
+                                            var resultado = document.getElementById("resultadoCsv");
+
+                                            var valorResultado = 1;
+
+                                            var lista = valor.value.split(",");
+
+                                            for (i = 0; i < lista.length; i++) {
+                                                valorResultado = valorResultado * (+lista[i]);
+                                            }
+
+                                            resultado.innerHTML = "= " + valorResultado ;
+                                        });
+                }
+              );
+
+
+	
+	
+</script>
+</head>
+<body onLoad="inic()" >
+
+ <nav class="navbar navbar-inverse navbar-fixed-top navbar-left">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#miMenu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div class="collapse navbar-collapse" id="miMenu">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../index.html">INICIO</a></li>
+            <li><a href="../puzzle/puzzle.html">PUZZLE</a></li>
+            <li class="active"><a href="#">CALCULADORA</a></li>
+            <li><a href="../tangram/tangram_random.html">TANGRAM</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+	<h2>Calculadora</h2>	
+  
+    <div class="unitarias">    
+    <h4 class="datos">1) Operaciones unitarias (con un solo operando)</h4>
+     
+    <h4 class="datos">Valor:  <input type="text" size="15" id="valorUnitario" >
+    <div id="resultadoUnitarias" class="solucion"></div>  </h4>
+    
+	
+  
+    <h5>1.1) x^2 (número elevado al cuadrado):  <button id="elevarCuadrado">x^2</button></h5>  
+   
+    <h5>1.2) 1/x (inverso del número): <button id="valorInverso">1/x</button></h5>   
+   
+    <h5>1.3) sqrt(x) (raiz cuadrada del número): <button id="raizCuadrada">sqrt(x)</button></h5>  
+   
+	<h5>1.4) parte_entera(x) (parte entera de x: si x es positivo devuelve Math.floor(x) y si es negativo devuelve -Math.ceil(x)): <button id="parteEntera"">parte_entera(x)</button></h5>
+
+	 <h5>1.5) 2^n (potencia n del número 2) <button id="potenciaN">2^n</button></h5> 
+
+	 <h5>1.6) n! (factorial del número n: n*(n-1)*(n-2)*...*3*2*1)  <button id="valorFactorial"> n!</button></h5>   	
+   </div>
+
+   <div class="binarias">  	
+  
+    <h4 class="datos">2) Operaciones binarias (con dos operandos)</h4>  
+	 <h4 class="datos">Valor X:<input type="text" size="15" id="valorXbinario" >  Valor Y: <input type="text" size="15" id="valorYbinario" >
+	 <div id="resultadoBinarias" class="solucion"></div> </h4>
+     
+    <h5>2.1) +. -. *, / (suma, resta, multiplicación y división):
+    <button id="sumar">+</button>
+	<button id="restar">-</button>
+	<button id="multiplicar">*</button>
+	<button id="dividir">/</button>	
+	</h5>  
+  
+	<h5>2.2) x^y (x elevado a y):
+    <button id="elevarValor">x^y</button>   
+    </h5>
+     </div>
+
+     <div class="csv">     
+
+    <h4 class="datos">3) Operaciones con n operandos introducidos en formato CSV:</h4>    
+    <h4 class="datos">Valor:    <input type="text" size="15" id="valorCsv" style="min-width: 200px;">    
+    <div id="resultadoCsv" class="solucion"></div></h4>
+
+     <h5>3.1) sumatorio(x) (sumatorio de n números): <button id="sumatorio">Sumatorio</button></h5>
+     <h5>3.2) producto(x) (producto de n números): <button id="producto">Producto</button></h5>      
+   </div>
+   <div class="row"> 
+       <div class="btn"><a title="Calculadora" href="../index.html">INICIO</a></div>    
+      <div class="btn"><a title="Tangram" href="../puzzle/puzzle.html">PUZZLE</a></div>
+      <div class="btn"><a title="Tangram" href="../tangram/tangram_random.html">TANGRAM</a></div> 
+      <div class="panel-footer text-center">Manuel Angel Picallo Perez</div>
+   </div>
+
+</body>
+</html>

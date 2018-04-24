@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Ejercicio Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style type="text/css">
+body{
+  margin-top: 70px;
+}
+    .carousel-inner .item img,
+    .carousel-inner .item img {
+      width: 100%;
+    }
+
+    .container .carousel-indicators .active {
+      background-color: orange;
+    }
+
+    .container .carousel-indicators li {
+      border: 1px solid orange;
+    }
+
+    .container .panel-footer {
+      margin-top: 20px;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-left">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#miMenu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>         
+        </div>
+        <div class="collapse navbar-collapse" id="miMenu">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">INICIO</a></li>
+            <li><a href="puzzle/puzzle.html">PUZZLE</a></li>
+            <li><a href="calculadora/calculadora.html">CALCULADORA</a></li>
+            <li><a href="tangram/tangram_random.html">TANGRAM</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- menú -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <a href="puzzle/puzzle.html">
+            <img src="images/puzzle.png" alt="Puzzle" width="954" height="410">
+          </a>
+        </div>
+        <div class="item">
+          <a href="calculadora/calculadora.html">
+            <img src="images/calculadora.png" alt="Calculadora" width="954" height="410">
+          </a>
+        </div>
+        <div class="item">
+          <a href="tangram/tangram_random.html">
+            <img src="images/tangram.png" alt="Tangram" width="954" height="410">
+          </a>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+    </div> 
+    <div class="row">             
+      <div class="btn"><a title="Calculadora" href="calculadora/calculadora.html">CALCULADORA</a></div>
+      <div class="btn"><a title="Puzzle" href="puzzle/puzzle.html">PUZZLE</a></div>
+       <div class="btn"><a title="Tangram" href="tangram/tangram_random.html">TANGRAM</a></div>   
+      <div class="panel-footer text-center">JuanSeVelez</div>
+   </div>
+  </div>
+</body>
+
+</html>

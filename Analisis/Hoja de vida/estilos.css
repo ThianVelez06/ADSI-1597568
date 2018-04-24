@@ -1,0 +1,48 @@
+body{
+	background: url(img/vans3.jpg);
+	display: flex;
+	background-color: #fff;
+
+	
+}
+
+.content{
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	width: 60%;
+	background: #CFCFCF;
+	padding: 10px;
+
+}
+
+.principal{
+	background: #1281CF;
+	padding: 9px;
+	display: flex;
+}
+
+.header{
+	display: flex;
+}
+
+.name{
+	margin-left: 30px;
+	margin-top: 30px;
+	width: 100%;
+	text-align: center;
+}
+
+.title{
+	border: 1px solid #2F5ABD;
+	border-radius: 4px;
+	color: #2F5ABD;
+
+}
+
+h1, h2{
+	font-family: godofwar;
+}
+
+p{
+	font-family: pixel;
+}

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/**** Global setting *****/
+
+body {
+  font:100%/1.25 Arial, Helvetica, sans-serif;
+  color: white;
+  	background-color:  green;
+  	margin-left: 15em;
+  	margin-right: 15em;
+  }
+
+/**** Headings ****/
+h1{
+	color: grey;
+	text-align: center;
+}
+
+p{
+	text-align: justify;
+}
+
+ol{
+	text-align: justify;
+}
+
+footer p{
+	text-align: center;
+}
+h3,h4 { color: #ffdead; }

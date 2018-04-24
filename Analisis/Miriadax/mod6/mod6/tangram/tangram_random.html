@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tangram</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="jquery-2.1.4.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+<script>
+$(document).ready(function() {
+
+$(window).load(function() {
+	cargar();
+});
+function cargar() {	
+var i = Math.floor(Math.random()*6);
+var j = Math.floor(Math.random()*11);	
+$("#foto").css({
+		'top': -j*118+'px',
+		'left': -i*128+'px'
+});
+}
+			
+$(".draggable").draggable({ stack: "img" });
+
+var angle = 0
+$("img").click(rotar)
+$( "img" ).bind( "tap", rotar );
+
+function rotar() {
+ 	angle += 45
+	$(this).css({
+          'transform': 'rotate('+angle+'deg)'
+     });  
+};
+
+});         
+</script>
+
+
+
+<style type="text/css">
+
+.row {
+	display: inline-block;
+    position:fixed;
+    bottom:0;
+}
+
+* {
+ user-select: none;
+ -webkit-touch-callout: none;
+ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ -webkit-tap-highlight-color: transparent;
+ margin: 0;
+ padding: 0;
+}
+
+
+@media (orientation:landscape) {
+      body {
+        width: 100vh;
+      }
+    }
+
+    @media (orientation:portrait) {
+      body {
+        width: 100%;
+      }
+    }
+
+
+
+body, html {
+	 margin-top: 70px;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+#caja {
+	position: absolute;
+	left:5%;
+	bottom:5%;
+	width: 135px;
+	height: 135px;
+	overflow: hidden;
+	border: 1px solid #000000;
+}
+#foto{
+	position:absolute;
+	top:0;
+	left:0;
+}
+h1 {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding-left: 1em;
+	padding-bottom: 0.2em;
+	border-bottom: 1px solid #000000;
+}
+</style>
+</head>
+<body>
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#miMenu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>       
+        </div>
+        <div class="collapse navbar-collapse" id="miMenu">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../index.html">INICIO</a></li>
+            <li><a href="../puzzle/puzzle.html">PUZZLE</a></li>
+            <li><a href="../calculadora/calculadora.html">CALCULADORA</a></li>
+            <li class="active"><a href="#">TANGRAM</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<img src="tangram1.svg" alt=" " class="draggable"> 
+<img src="tangram2.svg" alt=" " class="draggable">
+<img src="tangram3.svg" alt=" " class="draggable">
+<img src="tangram4.svg" alt=" " class="draggable">
+<img src="tangram5.svg" alt=" " class="draggable">
+<img src="tangram6.svg" alt=" " class="draggable">
+<img src="tangram7.svg" alt=" " class="draggable">
+
+<div id="caja" ><img id="foto" src="soluciones.jpg" alt=""/></div>
+<div class="row"> 
+       <div class="btn"><a title="Calculadora" href="../index.html">INICIO</a></div>         
+      <div class="btn"><a title="Calculadora" href="../calculadora/calculadora.html">CALCULADORA</a></div>
+      <div class="btn"><a title="Tangram" href="../puzzle/puzzle.html">PUZZLE</a></div>
+      <div class="panel-footer text-center">Manuel Angel Picallo Perez</div>
+ </div>
+
+</body>
+
+</html>

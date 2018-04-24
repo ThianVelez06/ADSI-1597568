@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html> <head>
+<meta charset="utf-8"> <title>PUZZLE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="jquery-2.1.4.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+
+<style type="text/css">
+
+.row {
+  display: inline-block;   
+    bottom:0;
+}
+
+* {
+ user-select: none;
+ -webkit-touch-callout: none;
+ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ -webkit-tap-highlight-color: transparent;
+ margin: 0;
+ padding: 0;
+}
+
+body{
+      margin-top: 70px;
+    }
+
+#sortable { 
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sortable li { 
+  float: left; 
+  width: 33.3%; 
+}
+
+#sortable li img {
+  vertical-align:bottom;
+  width: 100%; 
+  height: auto;
+}
+
+@media (orientation:landscape) {
+      #sortable {
+        width: 100vh;
+      }
+    }
+
+    @media (orientation:portrait) {
+      #sortable {
+        width: 100%;
+      }
+    }
+
+</style>
+
+<script>
+  $(function() {
+   $( "#sortable" ).sortable();
+   $( "#sortable" ).disableSelection();
+  });
+</script>
+
+</head> <body>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-left">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#miMenu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        
+        </div>
+        <div class="collapse navbar-collapse" id="miMenu">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">INICIO</a></li>
+            <li class="active"><a href="#">PUZZLE</a></li>
+            <li><a href="../calculadora/calculadora.html">CALCULADORA</a></li>
+            <li><a href="../tangram/tangram_random.html">TANGRAM</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="ejercicio"> 
+  <ul id="sortable">
+    <li><img  src="rafael_8.jpg" /></li>
+    <li><img  src="rafael_4.jpg" /></li>
+    <li><img  src="rafael_6.jpg" /></li>
+    <li><img  src="rafael_2.jpg" /></li>
+    <li><img  src="rafael_9.jpg" /></li>
+    <li><img  src="rafael_3.jpg" /></li>
+    <li><img  src="rafael_7.jpg" /></li>
+    <li><img  src="rafael_1.jpg" /></li>
+    <li><img  src="rafael_5.jpg" /></li>
+  </ul>
+  <div class="clear"> </div>
+  </div> 
+  </div>
+ <div class="row"> 
+       <div class="btn"><a title="Calculadora" href="../index.html">INICIO</a></div>         
+      <div class="btn"><a title="Calculadora" href="../calculadora/calculadora.html">CALCULADORA</a></div>
+    <div class="btn"><a title="Tangram" href="../tangram/tangram_random.html">TANGRAM</a></div>  
+      <div class="panel-footer text-center">Manuel Angel Picallo Perez</div>
+   </div>
+
+</body></html>
+

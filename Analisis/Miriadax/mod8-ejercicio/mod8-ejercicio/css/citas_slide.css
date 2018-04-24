@@ -1,0 +1,151 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #ccc;
+}
+img {
+	vertical-align: bottom;	
+}
+.contenido {
+	position: relative;
+	background-color: rgba(0, 0, 0, 1);
+	height: 427px;
+	width: 100%;
+	min-width: 640px;
+}
+#caja {
+	position: relative;
+	text-align: right;
+	width: 100%;
+	height: 100%;
+}
+#foto{
+	height: 100%;
+	max-height: 427px;
+	width: auto;
+}
+.textos {
+	position: absolute;
+	top: 20%;
+	left: 5%;
+	width: 50%;
+	color: #fff;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: large; 
+}
+#persona {
+	font-style: italic;
+}
+nav {
+	position: absolute;
+	width: 100%;
+	bottom: 10px;
+	z-index: 100;
+}
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+nav a {
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-color: #fff;
+	border-radius: 50%;
+}
+nav a.on{
+	background-color: orange;
+}
+nav a.off{
+	background-color: #fff;
+}
+nav a:hover {
+	background-color: red;
+}
+.contenido #datos {
+	margin-top: 5vh;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: none;
+}
+.contenido #datos div {
+	padding: 0.75em 0 0.75em 1em;
+	background-color: #eee;
+	border: 1px solid #000;
+	margin-bottom: 1em;
+	font: normal 1.25em calibri, helvetica, sans-serif;
+}
+.editar {
+	background-color: #777;
+	padding: 0.25em;
+	text-align: right;
+	height: 3em;
+}
+.editar img {
+	width: 1em;
+	height: 1em;
+	margin: 0 1.5em;
+	padding: 1em;
+	border-radius: 50%;
+}
+.editar > img:hover {
+	background-color: #123;
+	cursor: pointer;
+}
+.contenido #datos div#botones {
+	border: 1px none #000;
+	background-color: #ccc;
+}
+div #botones ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+div #botones ul li {
+	margin: 0.5em 0 0.5em 1em;
+}
+div #botones ul li img {
+	width: 25px;
+	height: 25px;
+	padding: 0.5em;
+	border-radius: 50%;
+	background-color: #777;
+}
+div #botones ul li img:hover {
+	background-color: #123;
+}
+footer {
+	margin-top: 0.5em;
+	padding: 0.5em;
+	background: #eee;
+	text-align: center;
+}
+footer small {
+	padding: 0.75em;
+	font: bold 0.85em calibri, helvetica, sans-serif;
+}
+#bd {
+	float: left;
+  padding: 0.75em;
+  margin-left: 1.25em;
+}
+#confirmar p {
+	font: normal 0.85em calibri, sans-serif;
+	margin-left: 2em;
+	display: none;
+}
+.ui-dialog-title {
+  text-align: center;
+  font-size: 0.85em;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<meta charset="utf-8">
+	<title>Videos e Imagenes en HTML5</title>
+</head>
+<body>
+<h1>Imágenes responsive con "Picture"</h1>
+<picture>
+	<source media="(min-width: 1200px)" srcset="images/lobo.jpg">
+	<source media="(min-width: 900px)" srcset="images/leon.jpg">
+	<source media="(min-width: 600px)" srcset="images/gato.jpg">
+	<img src="images/perro.jpg">
+</picture>
+<h1>Video de Fortnite con "Iframe"</h1>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/TWYS1Bw2_4k" frameborder="0" allowfullscreen></iframe>
+<h1>Imagen Vectorial autoajustable</h1>
+<img class="svg" src="images/emoticono.svg">
+<hr>
+<footer>(c) Juan Sebastian Velez Hurtado</footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ejercicio Obligatorio Módulo 4</title>
+<meta charset="utf-8">
+
+<script type="text/javascript">
+  var num, acc = 0, op = "";
+
+  function mas()   { acc = num.value;  op = "+"; }
+  function menos() { acc = num.value;  op = "-"; }
+  function por() { acc = num.value;  op = "*"; }
+  function dividido() { acc = num.value;  op = "/"; }
+  function elevado() { acc = num.value;  op = "^"; }
+
+  function calcular() {
+    if (op === "+") {num.value = (+acc + +num.value)}
+    if (op === "-") {num.value = (+acc - +num.value)}
+    if (op === "*") {num.value = (+acc * +num.value)}
+    if (op === "/") {num.value = (+acc / +num.value)}
+    if (op === "^") {num.value = (Math.pow(+acc, +num.value))}
+  }
+
+
+function cuadrado() {
+    num.value = num.value * num.value;
+}
+
+function inverso() {  
+  num.value = 1/num.value;
+}
+
+function raiz(){
+    num.value = Math.sqrt(num.value);
+}
+
+function parte_entera(){
+    if(num.value>0)
+        num.value = Math.floor(num.value);
+    else
+        num.value = Math.ceil(num.value);
+}
+
+  function inic ()   {num = document.getElementById("num");}
+  function vaciar () {num.value = "";}  
+</script>
+
+</head>
+<body onLoad="inic()">
+  <h2><strong>Buenos días, Calculadora by JuanSeVelez</strong></h2>
+  <p>Número:
+  <input type="text" size="12" id="num" onClick="vaciar()">
+  <button onClick="calcular()">=</button>
+  </p>
+  <p>
+    <button onclick="cuadrado()"> x<sup>2</sup> </button>
+    <button onclick="inverso()"> 1/x </button>  
+    <button onclick="raiz()"> raiz </button>  
+    <button onclick="parte_entera()"> Parte entera </button>  
+    <button onClick="mas()">+</button>
+    <button onClick="menos()">-</button>
+    <button onClick="por()">*</button>
+    <button onClick="dividido()">/</button>
+    <button onClick="elevado()">x<sup>y</sup></button>
+  </p>
+</body>
+</html>

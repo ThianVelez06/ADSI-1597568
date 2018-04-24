@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="utf-8" />
+ <title>Ejercicio P2P obligatorio - Módulo 8 (Miríadax)</title> 
+ <link rel="stylesheet" href="css/citas_slide.css" />
+ <link rel="stylesheet" href="css/jquery-ui.css" />
+ <script src="javascript/jquery-2.1.4.min.js"></script>
+ <script src="javascript/jquery-ui.js"></script>
+ <script src="javascript/galeria.js"></script>
+ <script>
+  var t, actual;
+  function select(i){
+   actual = i;
+   $("nav.citas a")
+    .removeClass("on off")
+    .addClass(function(j) { return (j === i) ? "on" : "off";});
+   $("#persona").html(citas_parse[i].persona);
+   $("#frase").html(citas_parse[i].frase);
+   $("#foto").attr("src", citas_parse[i].foto);
+   clearTimeout(t);
+   t = setTimeout(function() { select((i + 1) % citas_parse.length);}, 3500);
+  }
+  // Regenera la botonera inferior
+  function generar_selector() {
+   var selector = $("#selector");
+   selector.html("");
+   citas_parse.forEach(function(elem,i) {
+    selector.append("<li><a onClick='select("+i+")'></a></li>");
+   });
+  }
+
+  $(function (){
+		
+	 citas_originales = JSON.stringify(galeria);
+	 localStorage.citas = localStorage.citas || citas_originales;
+	 citas_parse = JSON.parse(localStorage.citas);
+	 
+   generar_selector();
+	 // Función que permite entrar en el modo edición, en el elemento actual
+   $("#editar").on("click", function() {
+    clearTimeout(t);
+    $("#persona_d").html(citas_parse[actual].persona);
+    $("#frase_d").html(citas_parse[actual].frase);
+    $("#foto_d").html(citas_parse[actual].foto);
+
+    $("#datos").css("display", "block");
+   });
+	 // Función que reinicia la galería
+	 $("#bd").on("click", function() {
+		clearTimeout(t);
+		$("#datos").css("display", "none");
+		$("#confirmar").css("display", "block");
+		$("#confirmar").dialog({
+			position: { my: "center", at: "center", of: "#caja" },
+			resizable: false,
+			height: 150,
+			modal: true,
+			buttons: {
+				Continuar: function() {
+					localStorage.removeItem('citas');
+					citas_originales = JSON.stringify(galeria);
+					localStorage.citas = localStorage.citas || citas_originales;
+					citas_parse = JSON.parse(localStorage.citas);
+					
+					generar_selector();
+					select(0);
+					$(this).dialog("close");
+				},
+				Cancelar: function() {
+					t = setTimeout(function() { select((actual + 1) % citas_parse.length);}, 3500);
+					$(this).dialog("close");
+				}
+			}
+		});
+	 });
+	 // Función que permite guardar cambios realizados en el elemento actual
+	 $("#guardar").on("click", function() {
+	  $("#datos").css("display", "none");
+    var cita = {
+		 persona: $("#persona_d").html(),
+		 frase: $("#frase_d").html(),
+		 foto: $("#foto_d").html()
+		}
+    citas_parse.splice(actual, 1, cita);
+
+		localStorage.citas = JSON.stringify(citas_parse);
+    generar_selector();
+    select(actual);
+	 });
+	 // Función que permite añadir un nuevo elemento a la galería
+   $("#nuevo").on("click", function() {
+    $("#datos").css("display", "none");
+    actual = citas_parse.push({
+     persona: $("#persona_d").html(),
+     frase: $("#frase_d").html(),
+     foto: $("#foto_d").html()
+    }) - 1;
+		
+		localStorage.citas = JSON.stringify(citas_parse);
+    generar_selector();
+    select(actual);
+   });
+	 // Función que permite borrar el elemento actual
+	 $("#borrar").on("click", function() {
+	  $("#datos").css("display", "none");
+    citas_parse.splice(actual, 1);
+		
+		localStorage.citas = JSON.stringify(citas_parse);
+    generar_selector();
+    select(0);
+	 });
+	 
+   select(0);
+		
+	 $('[data-toggle="tooltip"]').tooltip( {
+		 placement: "top"
+	 });
+  });
+ </script>
+</head>
+<body>
+ <div class="contenido">
+  <nav class="citas">
+   <ul id="selector"></ul>
+  </nav>
+  <section id="caja">
+   <img id="foto" alt="Foto de la persona autora de la frase" />
+   <div class="textos">
+    <p id="frase"></p>
+    <p id="persona"></p>
+   </div>
+  </section>
+  <div class="editar" id="editar">
+   <img id="bd" src="images/base-datos.svg" data-toggle="tooltip" alt="Botón para restaurar el carrusel" title="Si cliqueas este botón, se restaurará el carrusel." />
+   <img src="images/carat-d-white.svg" alt="Botón para entrar en el modo editar" title="Si cliqueas este botón, entrarás en el modo editar." />
+  </div>
+  <section id="datos">
+   <div contentEditable="true" id="persona_d"></div>
+   <div contentEditable="true" id="frase_d"></div>
+   <div contentEditable="true" id="foto_d"></div>
+   <div id="botones">
+    <ul>
+     <li><img src="images/editar-white.svg" alt="Botón para guardar cambios" title="Botón para guardar cambios" id="guardar"/></li>
+     <li><img src="images/add-white.svg" alt="Botón para añadir" title="Botón para añadir" id="nuevo"/></li>
+     <li><img src="images/borrar-white.svg" alt="Botón para borrar" title="Botón para borrar" id="borrar"/></li>
+    </ul>
+   </div>
+  </section>
+  <div id="confirmar" title="¿Restaurar la galería?">
+   <p><span class="ui-icon ui-icon-alert"></span>Si continúas, restaurarás el carrusel original. ¿Quieres seguir?</p>	
+  </div>
+  <footer>
+   <small>Ejercicio P2P Módulo 8 - Carrusel de citas con localStorage</small>
+  </footer>
+ </div>
+</body>
+</html>
